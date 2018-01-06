@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name><![CDATA[Planned & Under Construction]]></name>
+    <Style id="icon-503-CCCCCC-normal">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-503-CCCCCC-highlight">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-503-CCCCCC">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-CCCCCC-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-CCCCCC-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-503-CCCCCC-nodesc-normal">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-503-CCCCCC-nodesc-highlight">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-503-CCCCCC-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-503-CCCCCC-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-503-CCCCCC-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>(PLANNED) A12 - Hellevliet - 43kW - Shell / Allego</name>
+      <description>RWS permit received December 2017</description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.9842203,52.0814313,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Vremde	- 22kW -	Dorpsplaats 18, 2531 Vremde  </name>
+      <description>Allego [Source: http://paalvolgtwagen.be/vlaanderen/locaties-laadpalen-in-vlaanderen]</description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.52400439999997,51.1751421,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wijnegem	- 22kW -	Marktplein 27, 2110 Wijnegem (2x)</name>
+      <description>Allego [Source: http://paalvolgtwagen.be/vlaanderen/locaties-laadpalen-in-vlaanderen]</description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.52425840000001,51.2268501,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Wijnegem	- 22kW -	Turnhoutsebaan 199, 2110 Wijnegem (2x)</name>
+      <description>Allego [Source: http://paalvolgtwagen.be/vlaanderen/locaties-laadpalen-in-vlaanderen]</description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.51411619999999,51.2257934,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A12 Bodegraven - 43kW - MisterGreen</name>
+      <description><![CDATA[A12 West<br>Rijksweg a12 wz, 2811 ZZ Bodegraven<br>Colocated with Total fuel station]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.7407776,52.0661783,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A1 Amersfoort - 43kW - Neerduist - MisterGreen</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          5.3823609,52.2063016,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A2 Breukelen - 43kW - Ruwiel - Mister Green</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          4.9880876,52.1847009,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A27 Groenekan - 43kW - Nijpoort - MisterGreen</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          5.1506473,52.1315087,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A27 Groenekan - 43kW - Voordaan - MisterGreen</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          5.1511717,52.1303137,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Amsterdam - 22kW - Europaboulevard 10 - Essent</name>
+      <description><![CDATA[Amsterdam<br>Essent ’Laadplein van de toekomst’<br>Europaboulevard 10, 1083 AD Amsterdam<br>Essent<br>[charger ID]<br>[charger manufacturer]<br>All (fast) charging standards will be offered.<br>[source: Essent.nl]<br><br> http://www.essent.nl/content/overessent/actueel/archief/2014/ev-box_neemt_amsterdamse_snelladers_over_voor_laadplein_van_de_toekomst.html#]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.888906,52.333584,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Amsterdam - 22kW - Pauwenpad 1 - Essent</name>
+      <description><![CDATA[Amsterdam<br>Essent ’Laadplein van de toekomst’<br>Pauwenpad 1, 1097 DX Amsterdam<br>Essent<br>[charger ID]<br>[charger manufacturer]<br>All (fast) charging standards will be offered.<br>[source: Essent.nl]<br> http://www.essent.nl/content/overessent/actueel/archief/2014/ev-box_neemt_amsterdamse_snelladers_over_voor_laadplein_van_de_toekomst.html#]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.916603,52.349102,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Arnhem - 22kW - Parking/Parkeergarage Velperpoort - EV-Box/Cohere/Gemeente Arnhem</name>
+      <description><![CDATA[Arnhem<br>Parking/Parkeergarage Velperpoort, Ingenieur J.P. van Muijlwijkstraat 175, 6828 BN Arnhem<br>Gemeente Arnhem<br>[charger ID]<br>EV-Box<br>AC 22kW: 6 outlets (Smart Charging, Load Balancing)<br><br> <br>[source: EV-Box.com]<br><br><br>http://www.arnhem.nl/content.jsp?objectid=arnhemintern:63531]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          5.918857,51.98518,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Doetinchem - 22kW - Renault ZE Dealer Herwers</name>
+      <description><![CDATA[A18<br>Doetinchem<br>Renault ZE Dealer Herwers, New address: Edisonstraat 79, 7006 RB Doetinchem, +31 314 327 202<br><br><br>Renault ZE<br>[charger ID]<br>[Charger manufacturer]<br>AC22kW (will be installed soon, confirmed)<br>Access only during opening hours<br>[source: Renault NL, Herwers]]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          6.295308,51.950592,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Den Haag - 43kW - Prinses Irenestraat - The New Motion/Allego</name>
+      <description><![CDATA[NLAMSEEFAC0003<br><br> 2595 BD Den Haag]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.32591,52.083115,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Spijkenisse - 43kW - IBDL</name>
+      <description><![CDATA[Spijkenisse<br>IBDL, Boyleweg 10, 3208 KA Spijkenisse<br><br> <br>Currently available for guests / on request:<br>Private terrain: AC22kW: 2 outlets - available business days until 19:00<br><br> <br>PLANNED for September 2014, front of the building:<br>43kW: 1 outlet: available during office hours<br>22kW EV-Box: 1 outlet: 24 hours / 7 days available<br><br> <br>[source: Renaultforum.nl]]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.303547,51.854069,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A7 Breezand - Afsluitdijk - MisterGreen (RWS)</name>
+      <description><![CDATA[A7 East<br>Breezanddijk]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          5.2114892,53.0218181,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A9 Amstelveen NZ - MisterGreen (RWS)</name>
+      <description><![CDATA[A9 West<br>Shell Station NZ, Rijksweg A9 1, 1182AW Amstelveen<br>Colocated with Shell fuel station]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.8358096,52.3060285,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A8 Coentunnel - MisterGreen (RWS)</name>
+      <description><![CDATA[A8 North<br>Colocated with BP fuel station]]></description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.8566598,52.4428182,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Brussel Pachecolaan 7, Total Plug to Drive</name>
+      <description>TOTAL Pacheco, Pachecolaan, 7, 1000 Brussel</description>
+      <styleUrl>#icon-503-CCCCCC</styleUrl>
+      <Point>
+        <coordinates>
+          4.3624466,50.8516126,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A50 Weerbroek - Fastned (RWS)</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          5.7676399,51.9332453,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>A50 Ganzenven - Fastned (RWS)</name>
+      <styleUrl>#icon-503-CCCCCC-nodesc</styleUrl>
+      <Point>
+        <coordinates>
+          5.599519,51.7464821,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
