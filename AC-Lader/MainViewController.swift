@@ -96,7 +96,8 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         //
         
         var chargerClusterItems: [ChargerClusterItem] = []
-        let kmlParsers = self.chargerTypes.flatMap { $0.kmlParser }
+        let visibleChargerTypes = self.chargerTypes.filter { !$0.isHidden }
+        let kmlParsers = visibleChargerTypes.flatMap { $0.kmlParser }
         for kmlParser in kmlParsers {
             for geometryContainer in kmlParser.placemarks {
                 let placemark = geometryContainer as! GMUPlacemark
@@ -152,6 +153,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         super.viewDidAppear(animated)
         self.locationManager.requestWhenInUseAuthorization()
         self.gmsMapView.animate(toZoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
+        self.loadKML()
         self.renderCluster()
     }
     
