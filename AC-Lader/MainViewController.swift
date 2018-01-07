@@ -13,6 +13,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     private let locationManager = CLLocationManager()
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
+    private var kmlLoaded = false
     
     // MARK: - CLLocationManagerDelegate
     
@@ -153,7 +154,10 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         super.viewDidAppear(animated)
         self.locationManager.requestWhenInUseAuthorization()
         self.gmsMapView.animate(toZoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
-        self.loadKML()
+        if !kmlLoaded {
+            self.loadKML()
+            self.kmlLoaded = true
+        }
         self.renderCluster()
     }
     
