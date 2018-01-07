@@ -143,7 +143,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "AC Chargers"
+        self.title = "AC Fast Chargers"
         self.locationManager.distanceFilter = kCLDistanceFilterNone
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.delegate = self
