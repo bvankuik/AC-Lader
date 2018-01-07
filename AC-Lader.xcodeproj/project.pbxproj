@@ -12,7 +12,7 @@
 		897BC41620014ADC00B69A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41520014ADC00B69A86 /* Assets.xcassets */; };
 		897BC41920014ADC00B69A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41720014ADC00B69A86 /* LaunchScreen.storyboard */; };
 		89CEBDF3200152A6008FD028 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDF2200152A6008FD028 /* SettingsViewController.swift */; };
-		89CEBDF52001554D008FD028 /* ClusterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDF42001554D008FD028 /* ClusterViewModel.swift */; };
+		89CEBDF52001554D008FD028 /* ChargerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDF42001554D008FD028 /* ChargerItem.swift */; };
 		89CEBDF920015606008FD028 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDF820015606008FD028 /* Constants.swift */; };
 		89CEBDFB2001590D008FD028 /* ChargerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDFA2001590D008FD028 /* ChargerType.swift */; };
 		89CEBDFF20015A5B008FD028 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBDFE20015A5B008FD028 /* Utils.swift */; };
@@ -34,7 +34,7 @@
 		897BC41820014ADC00B69A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		897BC41A20014ADC00B69A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89CEBDF2200152A6008FD028 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		89CEBDF42001554D008FD028 /* ClusterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterViewModel.swift; sourceTree = "<group>"; };
+		89CEBDF42001554D008FD028 /* ChargerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerItem.swift; sourceTree = "<group>"; };
 		89CEBDF6200155A5008FD028 /* AC-Lader-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AC-Lader-Bridging-Header.h"; sourceTree = "<group>"; };
 		89CEBDF820015606008FD028 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89CEBDFA2001590D008FD028 /* ChargerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerType.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				89CEBE002001606E008FD028 /* KML */,
 				89CEBDFC2001598C008FD028 /* Supporting files */,
 				89CEBDFA2001590D008FD028 /* ChargerType.swift */,
-				89CEBDF42001554D008FD028 /* ClusterViewModel.swift */,
+				89CEBDF42001554D008FD028 /* ChargerItem.swift */,
 				89CEBDF820015606008FD028 /* Constants.swift */,
 				897BC41220014ADC00B69A86 /* Main.storyboard */,
 				897BC41020014ADC00B69A86 /* MainViewController.swift */,
@@ -267,7 +267,7 @@
 				897BC40F20014ADC00B69A86 /* AppDelegate.swift in Sources */,
 				89CEBDFF20015A5B008FD028 /* Utils.swift in Sources */,
 				89CEBDF3200152A6008FD028 /* SettingsViewController.swift in Sources */,
-				89CEBDF52001554D008FD028 /* ClusterViewModel.swift in Sources */,
+				89CEBDF52001554D008FD028 /* ChargerItem.swift in Sources */,
 				89CEBDF920015606008FD028 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +407,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MH8GQLL8BR;
 				INFOPLIST_FILE = "AC-Lader/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Lader";
@@ -423,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MH8GQLL8BR;
 				INFOPLIST_FILE = "AC-Lader/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Lader";

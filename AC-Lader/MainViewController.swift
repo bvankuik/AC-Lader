@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate {
+class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate, GMUClusterRendererDelegate {
     private let gmsMapView: GMSMapView
     private let locationManager = CLLocationManager()
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
@@ -45,6 +45,14 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.locationManager.stopUpdatingLocation()
         dlog("Error: \(error.localizedDescription)")
+    }
+    
+    // MARK: - GMUClusterRendererDelegate
+    
+    func renderer(_ renderer: GMUClusterRenderer, willRenderMarker marker: GMSMarker) {
+        if let chargerItem = marker.userData as? ChargerItem {
+            marker.icon = chargerItem.type.image
+        }
     }
     
     // MARK: - GMUClusterManagerDelegate
@@ -92,25 +100,33 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         let iconGenerator = GMUDefaultClusterIconGenerator(buckets: [5, 10, 25, 50, 100], backgroundImages: images)
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
         let renderer = GMUDefaultClusterRenderer(mapView: self.gmsMapView, clusterIconGenerator: iconGenerator)
+        renderer.delegate = self
         self.clusterManager = GMUClusterManager(map: self.gmsMapView, algorithm: algorithm, renderer: renderer)
         
         //
         
-        var chargerClusterItems: [ChargerClusterItem] = []
-        let visibleChargerTypes = self.chargerTypes.filter { !$0.isHidden }
-        let kmlParsers = visibleChargerTypes.flatMap { $0.kmlParser }
-        for kmlParser in kmlParsers {
+        var chargerItems: [ChargerItem] = []
+        for chargerType in self.chargerTypes where !chargerType.isHidden {
+            guard let kmlParser = chargerType.kmlParser else {
+                continue
+            }
+            
             for geometryContainer in kmlParser.placemarks {
-                let placemark = geometryContainer as! GMUPlacemark
-                let position = placemark.geometry as! GMUPoint
-                let item = ChargerClusterItem(position: position.coordinate, name: placemark.title ?? "No title")
-                chargerClusterItems.append(item)
+                guard let placemark = geometryContainer as? GMUPlacemark,
+                    let position = placemark.geometry as? GMUPoint else {
+                    continue
+                }
+                
+                let item = ChargerItem(position: position.coordinate,
+                                       name: placemark.title ?? "No title",
+                                       type: chargerType)
+                chargerItems.append(item)
             }
         }
         
         //
         
-        self.clusterManager?.add(chargerClusterItems)
+        self.clusterManager?.add(chargerItems)
         self.clusterManager?.cluster()
         self.clusterManager?.setDelegate(self, mapDelegate: self)
     }
@@ -127,6 +143,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "AC Chargers"
         self.locationManager.distanceFilter = kCLDistanceFilterNone
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.delegate = self

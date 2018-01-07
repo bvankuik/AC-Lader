@@ -18,9 +18,9 @@ struct Constants {
     let defaults = Defaults()
     let apiKey = "AIzaSyBRPakDGvYnKO70tKteJERj3gPaWuNNPqA"
     let chargerTypes = [
-        (sequence: 10, resourceName: "43kW AC (3x63A)  fast", isHidden: false),
-        (sequence: 20, resourceName: "22kW AC (3x32A)  semi-fast", isHidden: false),
-        (sequence: 30, resourceName: "Planned & Under Construction", isHidden: true),
+        (sequence: 10, resourceName: "43kW AC (3x63A)  fast", isHidden: false, imageName: "greenWithDot"),
+        (sequence: 20, resourceName: "22kW AC (3x32A)  semi-fast", isHidden: false, imageName: "greenWithDot"),
+        (sequence: 30, resourceName: "Planned & Under Construction", isHidden: true, imageName: "greenWithDot"),
     ]
 }
 

@@ -10,6 +10,7 @@ import Foundation
 
 class ChargerType {
     let sequence: Int
+    let image: UIImage
     var title: String?
     let resourceName: String
     var kmlParser: GMUKMLParser?
@@ -35,7 +36,7 @@ class ChargerType {
 
     static func makeChargerTypes() -> [ChargerType] {
         return constants.chargerTypes.map {
-            ChargerType(sequence: $0.sequence, resourceName: $0.resourceName)
+            ChargerType(sequence: $0.sequence, resourceName: $0.resourceName, imageName: $0.imageName)
         }
     }
     
@@ -44,10 +45,15 @@ class ChargerType {
         return key
     }
     
-    private init(sequence: Int, resourceName: String) {
+    private init(sequence: Int, resourceName: String, imageName: String) {
         self.sequence = sequence
         self.title = resourceName
         self.resourceName = resourceName
+        if let image = UIImage(named: imageName) {
+            self.image = image
+        } else {
+            fatalError("Image not found for \(resourceName)")
+        }
     }
 }
 

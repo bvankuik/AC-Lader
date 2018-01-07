@@ -5,7 +5,9 @@ App to view AC chargers. List of chargers is retrieved by downloading KML from h
 # To do
 
 The following features need to be implemented:
+* Add app icon
 * Saving zoom
+* Updating KML from http://ac-laders.nl
 * Coloring placemarks for each category
 * Render HTML of placemark descriptions
 * When tapping a cluster, zoom in

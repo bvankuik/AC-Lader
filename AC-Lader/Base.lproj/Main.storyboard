@@ -22,6 +22,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="qab-ew-PcZ">
                         <barButtonItem key="rightBarButtonItem" image="filter" id="X7c-ge-K01">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isAccessibilityElement" value="YES"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Filter"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="Filter on type of charger"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <segue destination="kLL-gf-EmW" kind="show" id="kSg-qd-dok"/>
                             </connections>
