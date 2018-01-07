@@ -8,6 +8,47 @@
 
 import Foundation
 
-struct ChargerType {
-    var title: String
+class ChargerType {
+    let sequence: Int
+    var title: String?
+    let resourceName: String
+    var kmlParser: GMUKMLParser?
+    var isHidden: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: self.defaultsKey())
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: self.defaultsKey())
+        }
+    }
+    
+    func defaultsKey() -> String {
+        let key = String(format: "%@%d", constants.defaults.chargerTypeHiddenKey, sequence)
+        return key
+    }
+    
+    func parse() {
+        guard let path = Bundle.main.path(forResource: self.resourceName, ofType: "kml") else {
+            fatalError("Couldn't load chargers KML file \(self.resourceName)")
+        }
+        
+        let url = URL(fileURLWithPath: path)
+        let kmlParser = GMUKMLParser(url: url)
+        kmlParser.parse()
+        self.kmlParser = kmlParser
+    }
+
+    static func makeChargerTypes() -> [ChargerType] {
+        return constants.chargerTypes.map {
+            ChargerType(sequence: $0.sequence, resourceName: $0.resourceName)
+        }
+    }
+    
+    private init(sequence: Int, resourceName: String) {
+        self.sequence = sequence
+        self.title = resourceName
+        self.resourceName = resourceName
+    }
 }
+
+

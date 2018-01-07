@@ -24,14 +24,18 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath)
-        cell.textLabel?.text = self.chargerTypes[indexPath.row].title
+        let chargerType = self.chargerTypes[indexPath.row]
+        cell.textLabel?.text = chargerType.title
+        cell.accessoryType = chargerType.isHidden ? .none : .checkmark
         return cell
     }
     
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        dlog()
+        let chargerType = self.chargerTypes[indexPath.row]
+        chargerType.isHidden = !chargerType.isHidden
+        self.tableView.reloadData()
     }
     
     // MARK: - View cycle

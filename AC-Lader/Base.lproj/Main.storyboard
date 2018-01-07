@@ -21,7 +21,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qab-ew-PcZ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="filter" id="X7c-ge-K01">
+                        <barButtonItem key="rightBarButtonItem" image="filter" id="X7c-ge-K01">
                             <connections>
                                 <segue destination="kLL-gf-EmW" kind="show" id="kSg-qd-dok"/>
                             </connections>

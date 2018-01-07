@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             constants.defaults.zoomKey: constants.defaults.zoomValue
         ]
         UserDefaults.standard.register(defaults: defaults)
+        constants.chargerTypes.forEach {
+            let key = String(format: "%@%d", constants.defaults.chargerTypeHiddenKey, $0.sequence)
+            let value = $0.isHidden
+            UserDefaults.standard.register(defaults: [key: value])
+        }
         
         return true
     }

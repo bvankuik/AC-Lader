@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate {
     private let gmsMapView: GMSMapView
     private let locationManager = CLLocationManager()
-    private var chargerTypes: [ChargerType] = []
+    private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
     
     // MARK: - CLLocationManagerDelegate
@@ -75,19 +75,15 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     // MARK: - Private functions
     
-    private func loadKML() -> GMUKMLParser {
-        guard let path = Bundle.main.path(forResource: "43kW AC (3x63A)  fast", ofType: "kml") else {
-            fatalError("Couldn't load chargers KML file")
+    private func loadKML() {
+        for chargerType in self.chargerTypes {
+            chargerType.parse()
+            
+            if let kmlParser = chargerType.kmlParser {
+                dlog(String(format: "Found %d placemarks, %d styles",
+                        kmlParser.placemarks.count, kmlParser.styles.count))
+            }
         }
-        
-        let url = URL(fileURLWithPath: path)
-        let kmlParser = GMUKMLParser(url: url)
-        kmlParser.parse()
-        dlog(String(format: "Found %d placemarks, %d styles",
-                    kmlParser.placemarks.count, kmlParser.styles.count))
-
-        // TODO add to charger types
-        return kmlParser
     }
     
     private func renderCluster() {
@@ -99,13 +95,15 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         
         //
         
-        let kmlParser = loadKML()
         var chargerClusterItems: [ChargerClusterItem] = []
-        for geometryContainer in kmlParser.placemarks {
-            let placemark = geometryContainer as! GMUPlacemark
-            let position = placemark.geometry as! GMUPoint
-            let item = ChargerClusterItem(position: position.coordinate, name: placemark.title ?? "No title")
-            chargerClusterItems.append(item)
+        let kmlParsers = self.chargerTypes.flatMap { $0.kmlParser }
+        for kmlParser in kmlParsers {
+            for geometryContainer in kmlParser.placemarks {
+                let placemark = geometryContainer as! GMUPlacemark
+                let position = placemark.geometry as! GMUPoint
+                let item = ChargerClusterItem(position: position.coordinate, name: placemark.title ?? "No title")
+                chargerClusterItems.append(item)
+            }
         }
         
         //
