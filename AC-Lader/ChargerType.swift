@@ -15,16 +15,11 @@ class ChargerType {
     var kmlParser: GMUKMLParser?
     var isHidden: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: self.defaultsKey())
+            return UserDefaults.standard.bool(forKey: ChargerType.defaultsKey(sequence: self.sequence))
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: self.defaultsKey())
+            UserDefaults.standard.set(newValue, forKey: ChargerType.defaultsKey(sequence: self.sequence))
         }
-    }
-    
-    func defaultsKey() -> String {
-        let key = String(format: "%@%d", constants.defaults.chargerTypeHiddenKey, sequence)
-        return key
     }
     
     func parse() {
@@ -42,6 +37,11 @@ class ChargerType {
         return constants.chargerTypes.map {
             ChargerType(sequence: $0.sequence, resourceName: $0.resourceName)
         }
+    }
+    
+    static func defaultsKey(sequence: Int) -> String {
+        let key = String(format: "%@%d", constants.defaults.chargerTypeHiddenKey, sequence)
+        return key
     }
     
     private init(sequence: Int, resourceName: String) {

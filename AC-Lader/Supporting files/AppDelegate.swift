@@ -13,14 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let defaults = [
-            constants.defaults.zoomKey: constants.defaults.zoomValue
-        ]
-        UserDefaults.standard.register(defaults: defaults)
+        UserDefaults.standard.register(defaults: [constants.defaults.zoomKey: constants.defaults.zoomValue])
         constants.chargerTypes.forEach {
-            let key = String(format: "%@%d", constants.defaults.chargerTypeHiddenKey, $0.sequence)
-            let value = $0.isHidden
-            UserDefaults.standard.register(defaults: [key: value])
+            let key = ChargerType.defaultsKey(sequence: $0.sequence)
+            UserDefaults.standard.register(defaults: [key: $0.isHidden])
         }
         
         return true
