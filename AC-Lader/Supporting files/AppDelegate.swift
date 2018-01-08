@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.register(defaults: [key: $0.isHidden])
         }
         
+        if !constants.apiKeyValid {
+            fatalError("The Google Maps API key is only valid for bundle ID nl.dutchvirtual.AC-Lader, please register your own key")
+        }
+        
         return true
     }
 

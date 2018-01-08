@@ -407,10 +407,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MH8GQLL8BR;
 				INFOPLIST_FILE = "AC-Lader/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Lader";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Laderr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AC-Lader/Supporting files/AC-Lader-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -424,10 +424,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MH8GQLL8BR;
 				INFOPLIST_FILE = "AC-Lader/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Lader";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-Laderr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AC-Lader/Supporting files/AC-Lader-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
