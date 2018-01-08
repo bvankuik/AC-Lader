@@ -1,4 +1,4 @@
-//
+ //
 //  MainViewController.swift
 //  AC-Lader
 //
@@ -14,6 +14,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
     private var kmlLoaded = false
+    private var isFirstStart = true
     
     // MARK: - CLLocationManagerDelegate
     
@@ -58,19 +59,23 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     // MARK: - GMUClusterManagerDelegate
     
     func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) -> Bool {
-        dlog()
-        return true
-    }
-    
-    func clusterManager(_ clusterManager: GMUClusterManager, didTap clusterItem: GMUClusterItem) -> Bool {
-        dlog()
-        return true
+        let newCamera = GMSCameraPosition.camera(withTarget: cluster.position, zoom: self.gmsMapView.camera.zoom + 1)
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        self.gmsMapView.moveCamera(update)
+        return false
     }
     
     // MARK: - GMSMapViewDelegate
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        dlog()
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        guard let chargerItem = marker.userData as? ChargerItem else {
+            return true
+        }
+
+        marker.title = chargerItem.name
+        marker.snippet = chargerItem.snippet
+        self.gmsMapView.selectedMarker = marker
+        return true
     }
     
     // MARK: - Public functions
@@ -120,6 +125,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
                 let item = ChargerItem(position: position.coordinate,
                                        name: placemark.title ?? "No title",
                                        type: chargerType)
+                item.htmlSnippet = placemark.snippet
                 chargerItems.append(item)
             }
         }
@@ -170,12 +176,16 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.locationManager.requestWhenInUseAuthorization()
-        self.gmsMapView.animate(toZoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
         if !kmlLoaded {
             self.loadKML()
             self.kmlLoaded = true
         }
         self.renderCluster()
+        
+        if self.isFirstStart {
+            self.isFirstStart = false
+            self.gmsMapView.animate(toZoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
+        }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
