@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,21 +22,103 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qab-ew-PcZ">
-                        <barButtonItem key="rightBarButtonItem" image="filter" id="X7c-ge-K01">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="isAccessibilityElement" value="YES"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Filter"/>
-                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="Filter on type of charger"/>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <segue destination="kLL-gf-EmW" kind="show" id="kSg-qd-dok"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="filter" id="X7c-ge-K01">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isAccessibilityElement" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityLabel" value="Filter"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityHint" value="Filter on type of charger"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Kzz-Gx-EsO" kind="popoverPresentation" identifier="SettingsSegue" popoverAnchorBarButtonItem="X7c-ge-K01" id="kSg-qd-dok">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="bookmarks" id="7oX-E0-Q5l">
+                                <connections>
+                                    <segue destination="o7g-Tq-xf2" kind="popoverPresentation" identifier="ChargerDetailsSegue" popoverAnchorBarButtonItem="7oX-E0-Q5l" id="j7X-JN-7SL">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="chargerDetailsButton" destination="7oX-E0-Q5l" id="Ffj-xC-UJt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="133.5832083958021"/>
+            <point key="canvasLocation" x="500" y="134"/>
+        </scene>
+        <!--Charger Details View Controller-->
+        <scene sceneID="FKV-Qd-CfE">
+            <objects>
+                <viewController id="TXF-uC-aTA" customClass="ChargerDetailsViewController" customModule="AC_Lader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lwj-hW-VcD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M0e-BO-QVp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the charger details" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vA0-gJ-5Xi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yA9-Ot-v20">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNf-CQ-ixO">
+                                        <rect key="frame" x="0.0" y="515" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="V2L-P8-TqO"/>
+                                        </constraints>
+                                        <state key="normal" title="Route via Google Maps"/>
+                                        <connections>
+                                            <action selector="routeGoogleButtonAction:" destination="TXF-uC-aTA" eventType="touchUpInside" id="eqW-AK-Zqz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7h-sA-RWW">
+                                        <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3yF-UF-Cdo"/>
+                                        </constraints>
+                                        <state key="normal" title="Route via Apple Maps"/>
+                                        <connections>
+                                            <action selector="routeAppleButtonAction:" destination="TXF-uC-aTA" eventType="touchUpInside" id="fZS-Vp-UZn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OlF-Vt-rkX" firstAttribute="trailing" secondItem="M0e-BO-QVp" secondAttribute="trailing" id="0aC-98-pCV"/>
+                            <constraint firstItem="M0e-BO-QVp" firstAttribute="leading" secondItem="OlF-Vt-rkX" secondAttribute="leading" id="GSe-OH-A2J"/>
+                            <constraint firstItem="M0e-BO-QVp" firstAttribute="top" secondItem="OlF-Vt-rkX" secondAttribute="top" id="mBI-Rh-0un"/>
+                            <constraint firstItem="OlF-Vt-rkX" firstAttribute="bottom" secondItem="M0e-BO-QVp" secondAttribute="bottom" id="tpQ-UJ-aGa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OlF-Vt-rkX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8cF-pu-gVm"/>
+                    <connections>
+                        <outlet property="routeAppleButton" destination="E7h-sA-RWW" id="Y0u-Wg-RVR"/>
+                        <outlet property="routeGoogleButton" destination="PNf-CQ-ixO" id="jQv-SO-xFC"/>
+                        <outlet property="textView" destination="yA9-Ot-v20" id="Odh-01-fzR"/>
+                        <outlet property="titleLabel" destination="vA0-gJ-5Xi" id="We5-iX-iKD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99x-cM-29S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1706" y="914"/>
         </scene>
         <!--Settings-->
         <scene sceneID="3mG-Rz-Qeg">
@@ -82,13 +165,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2FV-bw-HgF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0YI-Xp-iu2"/>
                     <connections>
                         <outlet property="tableView" destination="D6J-Y4-pId" id="Sq8-FE-4Um"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wA-eO-Yav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2078" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="urV-A2-fLT">
@@ -107,6 +191,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2H-lU-SA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-298" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ce8-x3-M8G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o7g-Tq-xf2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h8w-3t-eoL">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TXF-uC-aTA" kind="relationship" relationship="rootViewController" id="EYh-sd-x0j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T8i-tV-HpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857.60000000000002" y="914.84257871064472"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q0h-d6-xd2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kzz-Gx-EsO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YN9-07-Sg9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kLL-gf-EmW" kind="relationship" relationship="rootViewController" id="Th3-JT-7rd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mI3-II-yVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1259.2" y="133.13343328335833"/>
         </scene>
     </scenes>
     <resources>

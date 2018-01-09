@@ -8,13 +8,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate, GMUClusterRendererDelegate {
+class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate,
+    GMUClusterRendererDelegate, UIPopoverPresentationControllerDelegate {
+    @IBOutlet weak var chargerDetailsButton: UIBarButtonItem!
+    
     private let gmsMapView: GMSMapView
     private let locationManager = CLLocationManager()
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
     private var kmlLoaded = false
     private var isFirstStart = true
+    private var selectedChargerItem: ChargerItem?
     
     // MARK: - CLLocationManagerDelegate
     
@@ -72,10 +76,36 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
             return true
         }
 
+        self.selectedChargerItem = chargerItem
         marker.title = chargerItem.name
         marker.snippet = chargerItem.snippet
         self.gmsMapView.selectedMarker = marker
         return true
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        dlog("\(marker.accessibilityFrame)")
+        self.performSegue(withIdentifier: "ChargerDetailsSegue", sender: self)
+    }
+    
+    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
+        self.selectedChargerItem = nil
+    }
+    
+    // MARK: - UIPopoverPresentationDelegate
+    
+    func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
+        if let navigationController = controller.presentedViewController as? UINavigationController {
+            navigationController.topViewController?.navigationItem.leftBarButtonItem = closeButton
+            return navigationController
+        } else {
+            return nil
+        }
+    }
+    
+    @objc func close() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Public functions
@@ -140,8 +170,29 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? SettingsViewController {
+        segue.destination.presentationController?.delegate = self
+
+        guard let navigationController = segue.destination as? UINavigationController else {
+                fatalError("Programmer error")
+        }
+
+        if let viewController = navigationController.topViewController as? SettingsViewController {
             viewController.chargerTypes = self.chargerTypes
+        } else if let viewController = navigationController.topViewController as? ChargerDetailsViewController {
+            viewController.chargerItem = self.selectedChargerItem
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ChargerDetailsSegue" && self.selectedChargerItem == nil {
+            let message = "First select a charger!"
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let dismissAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(dismissAction)
+            self.present(alertController, animated: true, completion: nil)
+            return false
+        } else {
+            return true
         }
     }
     
@@ -149,6 +200,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "AC Fast Chargers"
         self.locationManager.distanceFilter = kCLDistanceFilterNone
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest

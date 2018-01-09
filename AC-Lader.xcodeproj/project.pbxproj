@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89251F352003D3BF00909BF8 /* ChargerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */; };
 		897BC40F20014ADC00B69A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC40E20014ADC00B69A86 /* AppDelegate.swift */; };
 		897BC41420014ADC00B69A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41220014ADC00B69A86 /* Main.storyboard */; };
 		897BC41620014ADC00B69A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41520014ADC00B69A86 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		3F479429E9F4274F0BD75B54 /* Pods-AC-Lader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.release.xcconfig"; sourceTree = "<group>"; };
 		7E13696968069172E4BD5D92 /* Pods-AC-Lader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.debug.xcconfig"; sourceTree = "<group>"; };
+		89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerDetailsViewController.swift; sourceTree = "<group>"; };
 		897BC40B20014ADC00B69A86 /* AC-Lader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-Lader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897BC40E20014ADC00B69A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897BC41020014ADC00B69A86 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				897BC41020014ADC00B69A86 /* MainViewController.swift */,
 				89CEBDF2200152A6008FD028 /* SettingsViewController.swift */,
 				89CEBDFE20015A5B008FD028 /* Utils.swift */,
+				89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */,
 			);
 			path = "AC-Lader";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				89CEBDFF20015A5B008FD028 /* Utils.swift in Sources */,
 				89CEBDF3200152A6008FD028 /* SettingsViewController.swift in Sources */,
 				89CEBDF52001554D008FD028 /* ChargerItem.swift in Sources */,
+				89251F352003D3BF00909BF8 /* ChargerDetailsViewController.swift in Sources */,
 				89CEBDF920015606008FD028 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
