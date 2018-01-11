@@ -22,6 +22,9 @@ struct Constants {
         (sequence: 20, resourceName: "22kW AC (3x32A)  semi-fast", isHidden: false, imageName: "greenWithDot"),
         (sequence: 30, resourceName: "Planned & Under Construction", isHidden: true, imageName: "grayWithoutDot"),
     ]
+
+    // Utrecht
+    let initialPosition = (latitude: 52.092876, longitude: 5.104480)
 }
 
 let constants = Constants()

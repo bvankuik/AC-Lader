@@ -8,49 +8,16 @@
 
 import UIKit
 
-class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate, CLLocationManagerDelegate,
+class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate,
     GMUClusterRendererDelegate, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var chargerDetailsButton: UIBarButtonItem!
     
     private let gmsMapView: GMSMapView
-    private let locationManager = CLLocationManager()
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
     private var kmlLoaded = false
     private var isFirstStart = true
     private var selectedChargerItem: ChargerItem?
-    
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .denied:
-            return
-        case .notDetermined:
-            return
-        case .restricted:
-            return
-        default:
-            self.locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            dlog("No locations")
-            return
-        }
-        
-        dlog("Updating to \(location.coordinate.latitude),\(location.coordinate.longitude)")
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
-        self.gmsMapView.camera = camera
-        self.locationManager.stopUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.locationManager.stopUpdatingLocation()
-        dlog("Error: \(error.localizedDescription)")
-    }
     
     // MARK: - GMUClusterRendererDelegate
     
@@ -90,6 +57,11 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
         self.selectedChargerItem = nil
+    }
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        self.gmsMapView.isMyLocationEnabled = true
+        return false
     }
     
     // MARK: - UIPopoverPresentationDelegate
@@ -202,12 +174,8 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         super.viewDidLoad()
         
         self.title = "AC Fast Chargers"
-        self.locationManager.distanceFilter = kCLDistanceFilterNone
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.delegate = self
         
         self.gmsMapView.translatesAutoresizingMaskIntoConstraints = false
-        self.gmsMapView.isMyLocationEnabled = true
         self.gmsMapView.settings.rotateGestures = false
         self.gmsMapView.settings.myLocationButton = true
         self.view.addSubview(self.gmsMapView)
@@ -227,7 +195,6 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.locationManager.requestWhenInUseAuthorization()
         if !kmlLoaded {
             self.loadKML()
             self.kmlLoaded = true
@@ -237,6 +204,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         if self.isFirstStart {
             self.isFirstStart = false
             self.gmsMapView.animate(toZoom: UserDefaults.standard.float(forKey: constants.defaults.zoomKey))
+            self.gmsMapView.camera = GMSCameraPosition.camera(withLatitude: constants.initialPosition.latitude, longitude: constants.initialPosition.longitude, zoom: constants.defaults.zoomValue)
         }
     }
     
