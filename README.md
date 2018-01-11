@@ -12,3 +12,4 @@ The following features are outstanding:
   markers WITHOUT a dot. Figure out if the KML specifies this particular
   detail.
 * Support Dynamic Type
+

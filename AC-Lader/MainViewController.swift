@@ -10,8 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate,
     GMUClusterRendererDelegate, UIPopoverPresentationControllerDelegate {
-    @IBOutlet weak var chargerDetailsButton: UIBarButtonItem!
-    
     private let gmsMapView: GMSMapView
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
@@ -52,11 +50,11 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         dlog("\(marker.accessibilityFrame)")
+        guard let chargerItem = marker.userData as? ChargerItem else {
+            return
+        }
+        self.selectedChargerItem = chargerItem
         self.performSegue(withIdentifier: "ChargerDetailsSegue", sender: self)
-    }
-    
-    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
-        self.selectedChargerItem = nil
     }
     
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
@@ -64,20 +62,40 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         return false
     }
     
-    // MARK: - UIPopoverPresentationDelegate
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        guard let chargerItem = marker.userData as? ChargerItem else {
+            return nil    // User tapped cluster marker instead of map marker
+        }
+
+        let m = mapView.selectedMarker
+        mapView.selectedMarker = nil
+        mapView.selectedMarker = m
+
+        let chargerInfoView = Bundle.loadView(fromNib: "ChargerInfoView", withType: ChargerInfoView.self)
+        chargerInfoView.chargerItem = chargerItem
+        return chargerInfoView
+    }
+
+    // MARK: - UIPopoverPresentationControllerDelegate
     
     func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
-        let closeButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(close))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(closeAction))
         if let navigationController = controller.presentedViewController as? UINavigationController {
-            navigationController.topViewController?.navigationItem.leftBarButtonItem = closeButton
+            navigationController.topViewController?.navigationItem.leftBarButtonItem = doneButton
             return navigationController
         } else {
             return nil
         }
     }
     
-    @objc func close() {
+    // MARK: - Actions
+    
+    @objc func closeAction() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func infoButtonAction() {
+        dlog()
     }
     
     // MARK: - Public functions
@@ -121,6 +139,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
             for geometryContainer in kmlParser.placemarks {
                 guard let placemark = geometryContainer as? GMUPlacemark,
                     let position = placemark.geometry as? GMUPoint else {
+                    dlog("Couldn't get GMUPlacemark and GMUPoint from KML parser")
                     continue
                 }
                 
