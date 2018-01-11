@@ -62,20 +62,6 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         return false
     }
     
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        guard let chargerItem = marker.userData as? ChargerItem else {
-            return nil    // User tapped cluster marker instead of map marker
-        }
-
-        let m = mapView.selectedMarker
-        mapView.selectedMarker = nil
-        mapView.selectedMarker = m
-
-        let chargerInfoView = Bundle.loadView(fromNib: "ChargerInfoView", withType: ChargerInfoView.self)
-        chargerInfoView.chargerItem = chargerItem
-        return chargerInfoView
-    }
-
     // MARK: - UIPopoverPresentationControllerDelegate
     
     func presentationController(_ controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {

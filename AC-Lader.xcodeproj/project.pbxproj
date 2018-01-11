@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		89251F352003D3BF00909BF8 /* ChargerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */; };
-		894F4815200A2E7700CEE1EC /* ChargerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F4814200A2E7700CEE1EC /* ChargerInfoView.swift */; };
-		894F4819200A555F00CEE1EC /* ChargerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894F4818200A555F00CEE1EC /* ChargerInfoView.xib */; };
-		894F481B200A56B200CEE1EC /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F481A200A56B200CEE1EC /* Bundle+Extensions.swift */; };
 		897BC40F20014ADC00B69A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC40E20014ADC00B69A86 /* AppDelegate.swift */; };
 		897BC41420014ADC00B69A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41220014ADC00B69A86 /* Main.storyboard */; };
 		897BC41620014ADC00B69A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41520014ADC00B69A86 /* Assets.xcassets */; };
@@ -31,9 +28,6 @@
 		3F479429E9F4274F0BD75B54 /* Pods-AC-Lader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.release.xcconfig"; sourceTree = "<group>"; };
 		7E13696968069172E4BD5D92 /* Pods-AC-Lader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.debug.xcconfig"; sourceTree = "<group>"; };
 		89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerDetailsViewController.swift; sourceTree = "<group>"; };
-		894F4814200A2E7700CEE1EC /* ChargerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerInfoView.swift; sourceTree = "<group>"; };
-		894F4818200A555F00CEE1EC /* ChargerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargerInfoView.xib; sourceTree = "<group>"; };
-		894F481A200A56B200CEE1EC /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		897BC40B20014ADC00B69A86 /* AC-Lader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-Lader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897BC40E20014ADC00B69A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897BC41020014ADC00B69A86 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +92,6 @@
 				89CEBE002001606E008FD028 /* KML */,
 				89CEBDFC2001598C008FD028 /* Supporting files */,
 				89CEBDFA2001590D008FD028 /* ChargerType.swift */,
-				894F481A200A56B200CEE1EC /* Bundle+Extensions.swift */,
 				89CEBDF42001554D008FD028 /* ChargerItem.swift */,
 				89CEBDF820015606008FD028 /* Constants.swift */,
 				897BC41220014ADC00B69A86 /* Main.storyboard */,
@@ -106,8 +99,6 @@
 				89CEBDF2200152A6008FD028 /* SettingsViewController.swift */,
 				89CEBDFE20015A5B008FD028 /* Utils.swift */,
 				89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */,
-				894F4814200A2E7700CEE1EC /* ChargerInfoView.swift */,
-				894F4818200A555F00CEE1EC /* ChargerInfoView.xib */,
 			);
 			path = "AC-Lader";
 			sourceTree = "<group>";
@@ -205,7 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				897BC41920014ADC00B69A86 /* LaunchScreen.storyboard in Resources */,
-				894F4819200A555F00CEE1EC /* ChargerInfoView.xib in Resources */,
 				897BC41620014ADC00B69A86 /* Assets.xcassets in Resources */,
 				89CEBE052001606E008FD028 /* 43kW AC (3x63A)  fast.kml in Resources */,
 				89CEBE042001606E008FD028 /* Planned & Under Construction.kml in Resources */,
@@ -277,11 +267,9 @@
 			files = (
 				89CEBE0720016302008FD028 /* MainViewController.swift in Sources */,
 				89CEBDFB2001590D008FD028 /* ChargerType.swift in Sources */,
-				894F481B200A56B200CEE1EC /* Bundle+Extensions.swift in Sources */,
 				897BC40F20014ADC00B69A86 /* AppDelegate.swift in Sources */,
 				89CEBDFF20015A5B008FD028 /* Utils.swift in Sources */,
 				89CEBDF3200152A6008FD028 /* SettingsViewController.swift in Sources */,
-				894F4815200A2E7700CEE1EC /* ChargerInfoView.swift in Sources */,
 				89CEBDF52001554D008FD028 /* ChargerItem.swift in Sources */,
 				89251F352003D3BF00909BF8 /* ChargerDetailsViewController.swift in Sources */,
 				89CEBDF920015606008FD028 /* Constants.swift in Sources */,
