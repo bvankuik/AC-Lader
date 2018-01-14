@@ -17,4 +17,8 @@ platform :ios do
     capture_screenshots(workspace: "AC-Lader.xcworkspace", scheme: "AC-LaderUITests")
     upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
   end
+
+  lane :release do
+     build_app(scheme: "AC-Lader")
+  end
 end

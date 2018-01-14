@@ -23,6 +23,11 @@ xcode-select --install
 fastlane ios screenshots
 ```
 Generate new localized screenshots
+### ios release
+```
+fastlane ios release
+```
+
 
 ----
 
