@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		89251F352003D3BF00909BF8 /* ChargerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */; };
+		894F4825200B5D4800CEE1EC /* AC_LaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F4824200B5D4800CEE1EC /* AC_LaderUITests.swift */; };
+		894F482D200B5D6A00CEE1EC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894F482C200B5D6A00CEE1EC /* SnapshotHelper.swift */; };
 		897BC40F20014ADC00B69A86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BC40E20014ADC00B69A86 /* AppDelegate.swift */; };
 		897BC41420014ADC00B69A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41220014ADC00B69A86 /* Main.storyboard */; };
 		897BC41620014ADC00B69A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 897BC41520014ADC00B69A86 /* Assets.xcassets */; };
@@ -24,10 +26,24 @@
 		F736046B70056184AFAE773A /* libPods-AC-Lader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A49238058F69306785A9AF84 /* libPods-AC-Lader.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		894F4827200B5D4900CEE1EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 897BC40320014ADC00B69A86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 897BC40A20014ADC00B69A86;
+			remoteInfo = "AC-Lader";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3F479429E9F4274F0BD75B54 /* Pods-AC-Lader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.release.xcconfig"; sourceTree = "<group>"; };
 		7E13696968069172E4BD5D92 /* Pods-AC-Lader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-Lader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-Lader/Pods-AC-Lader.debug.xcconfig"; sourceTree = "<group>"; };
 		89251F342003D3BF00909BF8 /* ChargerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerDetailsViewController.swift; sourceTree = "<group>"; };
+		894F4822200B5D4800CEE1EC /* AC-LaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AC-LaderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		894F4824200B5D4800CEE1EC /* AC_LaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AC_LaderUITests.swift; sourceTree = "<group>"; };
+		894F4826200B5D4900CEE1EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		894F482C200B5D6A00CEE1EC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		897BC40B20014ADC00B69A86 /* AC-Lader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-Lader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		897BC40E20014ADC00B69A86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		897BC41020014ADC00B69A86 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		894F481F200B5D4800CEE1EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897BC40820014ADC00B69A86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,10 +91,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		894F4823200B5D4800CEE1EC /* AC-LaderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				894F482C200B5D6A00CEE1EC /* SnapshotHelper.swift */,
+				894F4824200B5D4800CEE1EC /* AC_LaderUITests.swift */,
+				894F4826200B5D4900CEE1EC /* Info.plist */,
+			);
+			path = "AC-LaderUITests";
+			sourceTree = "<group>";
+		};
 		897BC40220014ADC00B69A86 = {
 			isa = PBXGroup;
 			children = (
 				897BC40D20014ADC00B69A86 /* AC-Lader */,
+				894F4823200B5D4800CEE1EC /* AC-LaderUITests */,
 				897BC40C20014ADC00B69A86 /* Products */,
 				03372A399A21B21A8AA46118 /* Pods */,
 				9F942F3B1646BC6AA96B6F7A /* Frameworks */,
@@ -82,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				897BC40B20014ADC00B69A86 /* AC-Lader.app */,
+				894F4822200B5D4800CEE1EC /* AC-LaderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +171,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		894F4821200B5D4800CEE1EC /* AC-LaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 894F482B200B5D4900CEE1EC /* Build configuration list for PBXNativeTarget "AC-LaderUITests" */;
+			buildPhases = (
+				894F481E200B5D4800CEE1EC /* Sources */,
+				894F481F200B5D4800CEE1EC /* Frameworks */,
+				894F4820200B5D4800CEE1EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				894F4828200B5D4900CEE1EC /* PBXTargetDependency */,
+			);
+			name = "AC-LaderUITests";
+			productName = "AC-LaderUITests";
+			productReference = 894F4822200B5D4800CEE1EC /* AC-LaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		897BC40A20014ADC00B69A86 /* AC-Lader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 897BC41D20014ADC00B69A86 /* Build configuration list for PBXNativeTarget "AC-Lader" */;
@@ -166,6 +219,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = DutchVirtual;
 				TargetAttributes = {
+					894F4821200B5D4800CEE1EC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 897BC40A20014ADC00B69A86;
+					};
 					897BC40A20014ADC00B69A86 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -186,11 +244,19 @@
 			projectRoot = "";
 			targets = (
 				897BC40A20014ADC00B69A86 /* AC-Lader */,
+				894F4821200B5D4800CEE1EC /* AC-LaderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		894F4820200B5D4800CEE1EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897BC40920014ADC00B69A86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +327,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		894F481E200B5D4800CEE1EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				894F4825200B5D4800CEE1EC /* AC_LaderUITests.swift in Sources */,
+				894F482D200B5D6A00CEE1EC /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		897BC40720014ADC00B69A86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,6 +352,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		894F4828200B5D4900CEE1EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 897BC40A20014ADC00B69A86 /* AC-Lader */;
+			targetProxy = 894F4827200B5D4900CEE1EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		897BC41220014ADC00B69A86 /* Main.storyboard */ = {
@@ -298,6 +381,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		894F4829200B5D4900CEE1EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AC-LaderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-LaderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AC-Lader";
+			};
+			name = Debug;
+		};
+		894F482A200B5D4900CEE1EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AC-LaderUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.dutchvirtual.AC-LaderUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AC-Lader";
+			};
+			name = Release;
+		};
 		897BC41B20014ADC00B69A86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -442,6 +553,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		894F482B200B5D4900CEE1EC /* Build configuration list for PBXNativeTarget "AC-LaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				894F4829200B5D4900CEE1EC /* Debug */,
+				894F482A200B5D4900CEE1EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		897BC40620014ADC00B69A86 /* Build configuration list for PBXProject "AC-Lader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
