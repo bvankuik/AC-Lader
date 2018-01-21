@@ -7,15 +7,37 @@
 //
 
 import UIKit
-
+import GooglePlacePicker
+ 
 class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManagerDelegate,
-    GMUClusterRendererDelegate, UIPopoverPresentationControllerDelegate {
+    GMUClusterRendererDelegate, UIPopoverPresentationControllerDelegate, GMSPlacePickerViewControllerDelegate {
     private let gmsMapView: GMSMapView
     private var chargerTypes: [ChargerType] = ChargerType.makeChargerTypes()
     private var clusterManager: GMUClusterManager?
     private var kmlLoaded = false
     private var isFirstStart = true
     private var selectedChargerItem: ChargerItem?
+    
+    // MARK: - GMSPlacePickerViewControllerDelegate
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        dlog()
+        viewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        dlog("place = \(place)")
+        viewController.dismiss(animated: true, completion: nil)
+
+        let newCamera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: 12)
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        self.gmsMapView.moveCamera(update)
+    }
+    
+    func placePicker(_ viewController: GMSPlacePickerViewController, didFailWithError error: Error) {
+        dlog("Error: \(error.localizedDescription)")
+        viewController.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - GMUClusterRendererDelegate
     
@@ -84,6 +106,13 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         dlog()
     }
     
+    @IBAction func searchButtonAction(_ sender: UIBarButtonItem) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        self.present(placePicker, animated: true, completion: nil)
+    }
+    
     // MARK: - Public functions
     
     @objc func applicationWillResignActive(notification: NSNotification) {
@@ -144,19 +173,23 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         self.clusterManager?.setDelegate(self, mapDelegate: self)
     }
     
+    private func commonInit() {
+        
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.presentationController?.delegate = self
 
-        guard let navigationController = segue.destination as? UINavigationController else {
-                fatalError("Programmer error")
-        }
-
-        if let viewController = navigationController.topViewController as? SettingsViewController {
+        if  let navigationController = segue.destination as? UINavigationController,
+            let viewController = navigationController.topViewController as? SettingsViewController {
             viewController.chargerTypes = self.chargerTypes
-        } else if let viewController = navigationController.topViewController as? ChargerDetailsViewController {
+        } else if let navigationController = segue.destination as? UINavigationController,
+            let viewController = navigationController.topViewController as? ChargerDetailsViewController {
             viewController.chargerItem = self.selectedChargerItem
+        } else if let viewController = segue.destination as? GMSPlacePickerViewController {
+            viewController.delegate = self
         }
     }
     
@@ -213,14 +246,9 @@ class MainViewController: UIViewController, GMSMapViewDelegate, GMUClusterManage
         }
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        GMSServices.provideAPIKey(constants.apiKey)
-        self.gmsMapView = GMSMapView()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         GMSServices.provideAPIKey(constants.apiKey)
+        GMSPlacesClient.provideAPIKey(constants.apiKey)
         self.gmsMapView = GMSMapView()
         super.init(coder: aDecoder)
     }

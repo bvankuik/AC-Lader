@@ -15,7 +15,7 @@ struct Constants {
         let chargerTypeHiddenKey = "chargerTypeVisibility"
     }
     let defaults = Defaults()
-    let apiKey = "AIzaSyBRPakDGvYnKO70tKteJERj3gPaWuNNPqA"
+    let apiKey = "AIzaSyArJO36haCK6XVQwh3nrwhCh1NPE4lAv9k"
     let apiKeyValid = ((Bundle.main.bundleIdentifier ?? "") == "nl.dutchvirtual.AC-Lader")
     let chargerTypes = [
         (sequence: 10, resourceName: "43kW AC (3x63A)  fast", isHidden: false, imageName: "mintGreenWithDot"),
