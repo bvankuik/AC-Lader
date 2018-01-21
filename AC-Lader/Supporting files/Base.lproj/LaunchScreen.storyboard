@@ -34,7 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="AC Fast Chargers" id="2pI-Dm-GXI">
                         <rightBarButtonItems>
-                            <barButtonItem image="filter" id="5WR-Bq-2Z0">
+                            <barButtonItem image="filter" landscapeImage="filter_iphone_landscape" id="5WR-Bq-2Z0">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </barButtonItem>
                             <barButtonItem systemItem="search" id="vq7-MR-oSJ">
@@ -67,7 +67,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="filter" width="25" height="25"/>
+        <image name="filter" width="22" height="22"/>
+        <image name="filter_iphone_landscape" width="20" height="20"/>
         <image name="netherlands" width="1000" height="1062"/>
     </resources>
 </document>
