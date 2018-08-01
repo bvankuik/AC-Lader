@@ -1,0 +1,8 @@
+app_identifier("nl.dutchvirtual.AC-Lader") # The bundle identifier of your app
+apple_id("bart@dutchvirtual.nl") # Your Apple email address
+
+itc_team_id "224451" # iTunes Connect Team ID
+team_id "MH8GQLL8BR" # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
